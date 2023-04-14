@@ -231,3 +231,95 @@ index.html 파일을 기존의 구조에서
   <footer>...</footer> <!--푸터 -->
 </body>
 ```
+
+
+<br>
+
+### :seven: 멘토리뷰 이후 수정 사항
+---
+
+멘토 리뷰 후  
+ 1.그룹 피어리뷰 후 수정했던 고정된 좌측 퀵 메뉴는 `<aside>` 태그가 아닌 네비게이션 부분인것 같다고 하셔서 `<nav>` 태그로 수정했습니다.   
+
+ <br>
+
+index.html 파일을 기존의 구조에서
+
+```html
+<body>
+  <header>...</header> <!--전체메뉴 -->
+
+  <main> 
+    <section>...</section> <!--메인 컨텐츠: 슬라이드 & 상품목록 -->
+    <aside>...</aside> <!--고정된 좌측  버튼: 전체메뉴, 검색, 페이스북, 인스타그램 -->
+    <div>...</div> <!--고정된 좌측 메뉴의 전체 메뉴 버튼누르면 나타나는 전체 메뉴 -->
+    <aside>...</aside> <!-- 고정된 우측 버튼: 스크롤 상단 이동 버튼 & 카카오톡 채널 상담 버튼-->
+  </main>
+
+  <footer>...</footer> <!--푸터 -->
+</body>
+```
+
+<br>
+
+아래 구조로 변경 했습니다. 
+
+```html
+<body>
+  <header>...</header> <!--전체메뉴 -->
+
+  <main> 
+    <section>...</section> <!--메인 컨텐츠: 슬라이드 & 상품목록 -->
+    <nav>...</nav> <!--고정된 좌측  버튼: 전체메뉴, 검색, 페이스북, 인스타그램 -->
+    <div>...</div> <!--고정된 좌측 메뉴의 전체 메뉴 버튼누르면 나타나는 전체 메뉴 -->
+    <aside>...</aside> <!-- 고정된 우측 버튼: 스크롤 상단 이동 버튼 & 카카오톡 채널 상담 버튼-->
+  </main>
+
+  <footer>...</footer> <!--푸터 -->
+</body>
+```
+
+<br>
+
+2.main.js 에서 퀵 메뉴의 전체 메뉴 보기를 눌렀을 때 메뉴가 나타나는 부분에 동적으로 값이 변하는 것이 아니면 클래스를 추가했다 제거하는 방식으로 구현하는 것이 좋을 것 같다고 하셔서 js 에서 스타일을 변하게 하는 것이 아닌 클래스 추가 제거로 수정했습니다.
+
+main.js의 기존 코드에서 
+
+```javascript
+const totalMenuButton = document.querySelector('.btn-total-menu')
+const totalMenuCloseButton = document.querySelector('.btn-menu-close')
+const totalMenu = document.querySelector('.total-menu')
+const body = document.querySelector('body') 
+
+
+totalMenuButton.addEventListener('click', function () {
+  totalMenu.style.transform = 'translateX(0%)'
+  totalMenu.style.opacity = '1'
+  body.style.overflow = 'hidden'
+})
+
+totalMenuCloseButton.addEventListener('click', function () {
+  totalMenu.style.transform = 'translateX(-100%)'
+  totalMenu.style.opacity = '0'
+  body.style.overflow = 'auto'
+})
+```
+
+해당 코드로 변경했습니다.
+```javascript
+// totalmenu : 좌측 퀵 메뉴의 전체 메뉴 열기 버튼 클릭 시 나타나는 전체 메뉴  
+const totalMenuButton = document.querySelector('.btn-total-menu')
+const totalMenuCloseButton = document.querySelector('.btn-menu-close')
+const totalMenu = document.querySelector('.total-menu')
+const body = document.querySelector('body') 
+
+totalMenuButton.addEventListener('click', function () {
+  totalMenu.classList.add('open')
+  body.classList.add('scroll-hidden')
+})
+
+totalMenuCloseButton.addEventListener('click', function () {
+  totalMenu.classList.remove('open')
+  body.classList.remove('scroll-hidden')
+})
+```
