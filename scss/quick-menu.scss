@@ -40,13 +40,13 @@
           outline: none;
           box-sizing: border-box;
         }
-        input[type=submit] {
+        button {
           position: absolute;
           right: 0;
           width: 66px;
           height: 41px;
           border: none;
-          background-image: url('/img/btn_search.png');
+          background: url('/img/btn_search.png') no-repeat;
           outline: none;
         }
       }

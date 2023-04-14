@@ -21,7 +21,10 @@ html {
     color: #000;
     font-family: 'Open Sans', NanumGothic, 'Malgun Gothic', Dotum, sans-serif;
     font-size: 12px;
-
+    &.scroll-hidden {
+      overflow: hidden;
+    }
+    
     div, dl, dt, dd, ul, ol, li, 
     h1, h2, h3, h4, h5, h6,  
     form, fieldset, legend, input, textarea, p, img {
@@ -99,10 +102,6 @@ html {
         display: table-cell;
         vertical-align: middle;
       }
-    }
-
-    .scroll-hidden {
-      overflow: hidden;
     }
 
     [class^='btn'] img {
