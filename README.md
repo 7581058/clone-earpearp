@@ -283,6 +283,8 @@ index.html 파일을 기존의 구조에서
 
 2.main.js 에서 퀵 메뉴의 전체 메뉴 보기를 눌렀을 때 메뉴가 나타나는 부분에 동적으로 값이 변하는 것이 아니면 클래스를 추가했다 제거하는 방식으로 구현하는 것이 좋을 것 같다고 하셔서 js 에서 스타일을 변하게 하는 것이 아닌 클래스 추가 제거로 수정했습니다.
 
+<br>
+
 main.js의 기존 코드에서 
 
 ```javascript
@@ -304,6 +306,8 @@ totalMenuCloseButton.addEventListener('click', function () {
   body.style.overflow = 'auto'
 })
 ```
+
+<br>
 
 해당 코드로 변경했습니다.
 
