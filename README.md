@@ -306,8 +306,8 @@ totalMenuCloseButton.addEventListener('click', function () {
 ```
 
 해당 코드로 변경했습니다.
-```javascript
-// totalmenu : 좌측 퀵 메뉴의 전체 메뉴 열기 버튼 클릭 시 나타나는 전체 메뉴  
+
+```javascript 
 const totalMenuButton = document.querySelector('.btn-total-menu')
 const totalMenuCloseButton = document.querySelector('.btn-menu-close')
 const totalMenu = document.querySelector('.total-menu')
